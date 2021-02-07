@@ -12,10 +12,12 @@ searchBtn.addEventListener('click', function(){
 
 
             const displayMeals = meals =>{
-            // searchBtn.addEventListener('click', function(){
 
                 const mealsDiv = document.getElementById('meals');
-                    mealsDiv.innerHTML = "";
+                mealsDiv.innerHTML = "";
+                const  mealDatailsDiv = document.getElementById('bistarito');
+                mealDatailsDiv.innerHTML = "";
+
                 meals.forEach(meal => {
                     const mealDiv = document.createElement('div');
                     mealDiv.className = 'meals-item';
@@ -24,9 +26,8 @@ searchBtn.addEventListener('click', function(){
                         <h5>${meal.strMeal}</h5>
                         <button onclick="detailsDisplay()" class = "btn btn-more">See More Details</button>                   `
                 mealDiv.innerHTML = contant;
-                    mealsDiv.appendChild(mealDiv);
+                mealsDiv.appendChild(mealDiv);
                     
-                // });
                 
             })
             
@@ -42,9 +43,11 @@ const detailsDisplay =()=> {
               
 }
 
-const displayDetailsMeals = meal =>{
+const displayDetailsMeals = meal=>{
         const  mealDatailsDiv = document.getElementById('bistarito');
+           
             mealDatailsDiv.innerHTML = "";
+
             const datialsDiv = document.createElement('div');
             datialsDiv.className = 'datails-part';
             const detailsContant = `
