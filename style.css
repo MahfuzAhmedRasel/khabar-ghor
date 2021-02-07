@@ -1,0 +1,35 @@
+body{
+    background-color: cyan;
+    margin-top: 30px;
+}
+.nav-bg-color{
+    background-color: transparent;
+}
+#input-value{
+    width: 300px;
+    padding: 6px 0;
+    margin-right: -10px;
+    border: none;
+    border-radius: 5px;
+}
+.meals-item{
+    width: 300px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+.meals-item h5{
+    margin: 15px;
+    text-align: center;
+}
+.meals-item img{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+#meals{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
