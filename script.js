@@ -18,21 +18,23 @@ searchBtn.addEventListener('click', function(){
                     const mealDiv = document.createElement('div');
                     mealDiv.className = 'meals-item';
                     const contant = `
-                        <img onclick="displayMealDetails(${meal.strMeal})" src="${meal.strMealThumb}" alt="">
+                        <img  src="${meal.strMealThumb}" alt="">
                         <h5>${meal.strMeal}</h5>
                     `
                 mealDiv.innerHTML = contant;
                     mealsDiv.appendChild(mealDiv);
                     
                 });
+                
             })
             
             }
+            displayMealDetails();
 });
 
-const displayMealDetails = meal => {
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${meal}}`
-    fetch(url)
-    .then(res => res.json())
-    .then(data => console.log(data.strMeal));
+const displayMealDetails = () => {
+    const clickSection = document.getElementsByClassName('.meals-item');
+    clickSection.forEach(element => {
+        console.log(element);
+    });
 }
