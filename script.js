@@ -12,7 +12,7 @@ searchBtn.addEventListener('click', function(){
 
 
             const displayMeals = meals =>{
-            searchBtn.addEventListener('click', function(){
+            // searchBtn.addEventListener('click', function(){
 
                 const mealsDiv = document.getElementById('meals');
                     mealsDiv.innerHTML = "";
@@ -26,7 +26,7 @@ searchBtn.addEventListener('click', function(){
                 mealDiv.innerHTML = contant;
                     mealsDiv.appendChild(mealDiv);
                     
-                });
+                // });
                 
             })
             
