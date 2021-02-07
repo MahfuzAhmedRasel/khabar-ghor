@@ -16,7 +16,6 @@ body{
     width: 300px;
     border-radius: 5px;
     background-color: white;
-    cursor: pointer;
 }
 .meals-item h5{
     margin: 15px;
@@ -32,4 +31,26 @@ body{
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
 }
-
+.btn-more{
+    border: 2px solid cyan;
+    background-color: white;
+    margin: 0 0 20px 78px;
+    border-radius: 5px;
+} 
+.btn-more:hover{
+    background-color: cyan;
+    color: white;
+}
+.datails-part{
+    width: 400px;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    margin: 10px;
+}
+.datails-part h5, .datails-part p{
+    margin: 10px;
+}
+.datails-part img{
+    width: 100%;
+}
