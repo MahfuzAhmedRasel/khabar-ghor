@@ -29,12 +29,6 @@ searchBtn.addEventListener('click', function(){
             })
             
             }
-            displayMealDetails();
+      
 });
 
-const displayMealDetails = () => {
-    const clickSection = document.getElementsByClassName('.meals-item');
-    clickSection.forEach(element => {
-        console.log(element);
-    });
-}
