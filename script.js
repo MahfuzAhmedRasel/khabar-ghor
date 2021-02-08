@@ -8,7 +8,8 @@ searchBtn.addEventListener('click', function(){
         console.log(searchValue.value);
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue.value}`)
         .then(res => res.json())
-        .then(data => displayMeals(data.meals));
+        .then(data => displayMeals(data.meals))
+        .catch(error => displayError('Sorry Sir Something Wrong')); 
 
 
             const displayMeals = meals =>{
@@ -39,35 +40,45 @@ const detailsDisplay =()=> {
     const searchValue= document.getElementById('input-value');
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue.value}`)
             .then(res => res.json())
-            .then(data => displayDetailsMeals(data.meals));    
+            .then(data => displayDetailsMeals(data.meals))
+            .catch(error => displayError(error));   
               
 }
 
-const displayDetailsMeals = meal=>{
+const displayDetailsMeals = meals=>{
         const  mealDatailsDiv = document.getElementById('bistarito');
            
             mealDatailsDiv.innerHTML = "";
-
-            const datialsDiv = document.createElement('div');
-            datialsDiv.className = 'datails-part';
-            const detailsContant = `
-                    <img  src="${meal[0].strMealThumb}" alt="">
-                    <h5>${meal[0].strMeal}</h5>
-                    <h5> Ingredient </h5> </br>
-                    <p>${meal[0].strIngredient1}</p>
-                    <p>${meal[0].strIngredient2}</p>
-                    <p>${meal[0].strIngredient3}</p>
-                    <p>${meal[0].strIngredient4}</p>
-                    <p>${meal[0].strIngredient5}</p>
-                    <p>${meal[0].strIngredient6}</p>
-                    <p>${meal[0].strIngredient7}</p>
-                    <p>${meal[0].strIngredient8}</p>
-                    <p>${meal[0].strIngredient9}</p>
-                    <p>${meal[0].strIngredient10}</p>
-            `
-            datialsDiv.innerHTML = detailsContant;
-            mealDatailsDiv.appendChild(datialsDiv);
+            meals.forEach(meal => {
+                 const datialsDiv = document.createElement('div');
+                    datialsDiv.className = 'datails-part';
+                    datialsDiv.idName = 'datailsid-part';
+                    const detailsContant = `
+                            <img  src="${meal.strMealThumb}" alt="">
+                            <h5>${meal.strMeal}</h5> </br>
+                            <h5> Ingredient </h5> 
+                            <p>${meal.strIngredient1}</p>
+                            <p>${meal.strIngredient2}</p>
+                            <p>${meal.strIngredient3}</p>
+                            <p>${meal.strIngredient4}</p>
+                            <p>${meal.strIngredient5}</p>
+                            <p>${meal.strIngredient6}</p>
+                            <p>${meal.strIngredient7}</p>
+                            <p>${meal.strIngredient8}</p>
+                            <p>${meal.strIngredient9}</p>
+                            <p>${meal.strIngredient10}</p>
+                    `
+                    datialsDiv.innerHTML = detailsContant;
+                    mealDatailsDiv.appendChild(datialsDiv);
+                    datialsDiv.classList.add('d-block')
+            });
+   
       
         
     
     }
+
+const displayError = error =>{
+    const errorMsag = document.getElementById('error-msg');
+    errorMsag.innerText = error;
+}
